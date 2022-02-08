@@ -1,12 +1,10 @@
 package com.project2.pomodoro;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuBar;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,8 +26,6 @@ public class HelloController implements Initializable {
     public Label countWork;
     @FXML
     public Label countBreak;
-    @FXML
-    public MenuBar menuBar;
 
     private Timer timer;
 

@@ -2,7 +2,7 @@ package com.project2.pomodoro;
 
 import javafx.application.Platform;
 import javafx.scene.control.Label;
-
+import javafx.scene.media.MediaPlayer;
 
 import java.util.TimerTask;
 
@@ -14,7 +14,11 @@ public class PomodoroTask extends TimerTask {
 
     private static int secondes = 0, minutes = 0;
 
+    private static String path = "";
+
     private Label workLabel, breakLabel, countWork, countBreak;
+
+    private MediaPlayer mediaPlayer;
 
     public PomodoroTask(Label workLabel, Label breakLabel, Label countWork, Label countBreak) {
         this.workLabel = workLabel;
@@ -40,6 +44,10 @@ public class PomodoroTask extends TimerTask {
 
     public static void setCountWorkSessionDelay(int countWorkSession) {
         countWorkSession = countWorkSession;
+    }
+
+    public static void setPath(String p) {
+        path = p;
     }
 
     public static void setBreakSessionDelay(int breakSessionDelay) {
@@ -85,7 +93,6 @@ public class PomodoroTask extends TimerTask {
             if(countBreakSession % 4 == 0 && countBreakSession != 0) {
                 breakSessionDelay = 10;
             }
-            System.out.println((countBreakSession % 4 == 0 && countBreakSession != 0));
             if(tour == 1) {
                 if(minutes >= workSessionDelay) {
                     //Si la minutes est supérieure à 25 par défaut alors...
@@ -93,7 +100,6 @@ public class PomodoroTask extends TimerTask {
                     secondes = 0;
                     countWorkSession++;
                     tour = 2;
-                    System.out.println(countWorkSession);
                 } else {
                     if(secondes < 59) {
                         secondes++;
@@ -127,4 +133,18 @@ public class PomodoroTask extends TimerTask {
             }
         });
     }
+
+
+    /*private void play() {
+        System.out.println(path);
+        Media media = new Media(new File(path).toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }*/
 }
