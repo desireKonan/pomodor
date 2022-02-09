@@ -38,7 +38,7 @@ public class HelloController implements Initializable {
         } else {
             timer.purge();
         }
-        timer.scheduleAtFixedRate(new PomodoroTask(sessionWorkTimer, sessionBreakTimer, countWork, countBreak), 0, 10);
+        timer.scheduleAtFixedRate(new PomodoroTask(sessionWorkTimer, sessionBreakTimer, countWork, countBreak), 1000, 1000);
 
     }
 
