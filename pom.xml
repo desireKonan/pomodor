@@ -74,7 +74,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.project2.pomodoro/com.project2.pomodoro.HelloApplication</mainClass>
+                            <mainClass>com.project2.pomodoro/com.pomodoro.PomodoroApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

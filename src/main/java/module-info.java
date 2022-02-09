@@ -6,6 +6,6 @@ module com.project2.pomodoro {
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
 
-    opens com.project2.pomodoro to javafx.fxml, javafx.media;
-    exports com.project2.pomodoro;
+    opens com.pomodoro to javafx.fxml, javafx.media;
+    exports com.pomodoro;
 }

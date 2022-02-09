@@ -1,0 +1,103 @@
+package com.pomodoro;
+
+public class PomodoroClock {
+
+    //Compteur des sessions de travail et de pause.
+    private static int countWork = 0, countBreak = 0;
+
+    //Temps en secondes.
+    private int time = 0;
+
+    PomodoroMode mode;
+
+
+    public PomodoroClock(int time) {
+        this.time = time;
+    }
+
+
+    public PomodoroClock() {
+        this.time = PomodoroMode.WORK.getSecondes();
+        this.mode = PomodoroMode.WORK;
+    }
+
+
+
+    public PomodoroMode getMode() {
+        return mode;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public String getCountBreak() {
+        return String.valueOf(countBreak);
+    }
+
+    public String getCountWork() {
+        return String.valueOf(countWork);
+    }
+
+    //Retourne le temps actuel.
+    public String currentTime() {
+        int minutes = this.time / 60;
+        int secondes = this.time % 60;
+        return String.format("%02d : %02d", minutes, secondes);
+    }
+
+
+
+    public void setMode(PomodoroMode mode) {
+        this.mode = mode;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+
+
+    public boolean isTimingUp() {
+        return time == 0;
+    }
+
+
+
+    //Démarre la montre pomodoro.
+    public void startTime() {
+        if(mode.equals(PomodoroMode.WORK)) {
+            if(isTimingUp()) {
+                //Si le temps est 0, on réinitialise la montre.
+                if(countBreak % 4 == 0 && countBreak != 0) {
+                    this.setMode(PomodoroMode.LONG_BREAK);
+                } else {
+                    this.setMode(PomodoroMode.SHORT_BREAK);
+                }
+                time = this.getMode().getSecondes();
+                countWork++;
+            } else {
+                time--;
+                System.out.println(currentTime());
+            }
+        } else {
+            if(isTimingUp()) {
+                //Si le temps est 0, on réinitialise la montre.
+                this.setMode(PomodoroMode.WORK);
+                time = this.getMode().getSecondes();
+                ++countBreak;
+            } else {
+                time--;
+                System.out.println(currentTime());
+            }
+        }
+    }
+
+    //Réinistialise la montre Pomodoro.
+    public void reset() {
+        this.setMode(PomodoroMode.WORK);
+        this.time = this.getMode().getSecondes();
+        countWork = 0;
+        countBreak = 0;
+    }
+}
