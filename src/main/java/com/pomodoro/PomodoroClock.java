@@ -1,7 +1,6 @@
 package com.pomodoro;
 
 public class PomodoroClock {
-
     //Compteur des sessions de travail et de pause.
     private static int countWork = 0, countBreak = 0;
 

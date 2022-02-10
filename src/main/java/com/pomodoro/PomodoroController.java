@@ -23,9 +23,9 @@ public class PomodoroController implements Initializable {
     @FXML
     public Label labelWork;
     @FXML
-    public Label countWork;
+    public Label label;
     @FXML
-    public Label labelBreak;
+    public Label countWork;
     @FXML
     public Label countBreak;
 
@@ -68,10 +68,11 @@ public class PomodoroController implements Initializable {
                         playSound(getClass().getResource("media/bip-fin-session.mp3").toString());
                     }
                     if(task.getClock().getMode().equals(PomodoroMode.WORK)) {
-                        labelWork.setText(task.getClock().currentTime());
+                        label.setText(task.getClock().getMode().toString());
                     } else {
-                        labelBreak.setText(task.getClock().currentTime());
+                        label.setText(task.getClock().getMode().toString());
                     }
+                    labelWork.setText(task.getClock().currentTime());
                     countWork.setText(task.getClock().getCountWork());
                     countBreak.setText(task.getClock().getCountBreak());
                 });
