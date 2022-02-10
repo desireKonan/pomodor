@@ -8,18 +8,16 @@ public class PomodoroTask {
     private PomodoroClock clock;
     private Timer timer;
 
-    private boolean isRunning;
+    private boolean isRunning = false;
 
-    public PomodoroTask(PomodoroClock clock, Timer timer, boolean isRunning) {
+    public PomodoroTask(PomodoroClock clock, Timer timer) {
         this.clock = clock;
         this.timer = timer;
-        isRunning = false;
     }
 
     public PomodoroTask() {
         this.clock = new PomodoroClock();
         this.timer = new Timer();
-        isRunning = false;
     }
 
 
@@ -39,32 +37,37 @@ public class PomodoroTask {
         this.timer = timer;
     }
 
+    /**
+     *  <p> Lance une tâche Pomodoro (Timer) </p>
+     */
     public void start() {
-        runOrResume();
-    }
-
-    public void stop() {
-        isRunning = false;
-        this.timer.cancel();
-        this.timer.purge();
-    }
-
-    public void reset() {
-        isRunning = false;
-        timer.cancel();
-        this.getClock().reset();
-    }
-
-    private void runOrResume() {
         if (!isRunning) {
             this.timer = new Timer();
+            isRunning = true;
         }
         this.timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
+                //Modèle qui édite le chronomètre (montre pomodoro).
                 clock.startTime();
             }
-        }, 0, 1000);
-        isRunning = true;
+        }, 0, 10);
+    }
+
+    /**
+     *  <p> Stop une tâche Pomodoro (Timer) </p>
+     */
+    public void stop() {
+        isRunning = false;
+        this.timer.cancel();
+    }
+
+    /**
+     *  <p> Réinitialise une tâche Pomodoro (Timer) </p>
+     */
+    public void reset() {
+        isRunning = false;
+        this.timer.cancel();
+        this.getClock().reset();
     }
 }

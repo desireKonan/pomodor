@@ -23,4 +23,14 @@ public enum PomodoroMode {
     public int getSecondes() {
         return minutes * 60;
     }
+
+    @Override
+    public String toString() {
+        return switch (this.ordinal()) {
+            case 0 -> "Travail";
+            case 1 -> "Pause";
+            case 2 -> "Longue Pause";
+            default -> "Custom";
+        };
+    }
 }

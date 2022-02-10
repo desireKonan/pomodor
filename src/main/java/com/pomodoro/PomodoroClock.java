@@ -10,18 +10,14 @@ public class PomodoroClock {
 
     PomodoroMode mode;
 
-
     public PomodoroClock(int time) {
         this.time = time;
     }
-
 
     public PomodoroClock() {
         this.time = PomodoroMode.WORK.getSecondes();
         this.mode = PomodoroMode.WORK;
     }
-
-
 
     public PomodoroMode getMode() {
         return mode;
@@ -46,8 +42,6 @@ public class PomodoroClock {
         return String.format("%02d : %02d", minutes, secondes);
     }
 
-
-
     public void setMode(PomodoroMode mode) {
         this.mode = mode;
     }
@@ -56,40 +50,23 @@ public class PomodoroClock {
         this.time = time;
     }
 
-
-
     public boolean isTimingUp() {
         return time == 0;
     }
 
-
-
     //Démarre la montre pomodoro.
     public void startTime() {
-        if(mode.equals(PomodoroMode.WORK)) {
-            if(isTimingUp()) {
-                //Si le temps est 0, on réinitialise la montre.
-                if(countBreak % 4 == 0 && countBreak != 0) {
-                    this.setMode(PomodoroMode.LONG_BREAK);
-                } else {
-                    this.setMode(PomodoroMode.SHORT_BREAK);
-                }
-                time = this.getMode().getSecondes();
+        if(isTimingUp()) {
+            //Si le temps est 0, on réinitialise la montre.
+            this.setTurn();
+            time = this.getMode().getSecondes();
+            if (this.mode.equals(PomodoroMode.WORK))
                 countWork++;
-            } else {
-                time--;
-                System.out.println(currentTime());
-            }
+            else
+                countBreak++;
         } else {
-            if(isTimingUp()) {
-                //Si le temps est 0, on réinitialise la montre.
-                this.setMode(PomodoroMode.WORK);
-                time = this.getMode().getSecondes();
-                ++countBreak;
-            } else {
-                time--;
-                System.out.println(currentTime());
-            }
+            time--;
+            System.out.println(currentTime());
         }
     }
 
@@ -99,5 +76,18 @@ public class PomodoroClock {
         this.time = this.getMode().getSecondes();
         countWork = 0;
         countBreak = 0;
+    }
+
+
+    private void setTurn() {
+        if (this.mode.equals(PomodoroMode.WORK)) {
+            if(countBreak % 4 == 0 && countBreak != 0) {
+                this.setMode(PomodoroMode.LONG_BREAK);
+            } else {
+                this.setMode(PomodoroMode.SHORT_BREAK);
+            }
+        } else {
+            this.setMode(PomodoroMode.WORK);
+        }
     }
 }

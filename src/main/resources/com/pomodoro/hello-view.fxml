@@ -8,12 +8,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffda79;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pomodoro.PomodoroController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="703.0" style="-fx-background-color: #ffda79; -fx-border-radius: 4%;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pomodoro.PomodoroController">
    <children>
-      <HBox alignment="CENTER" layoutX="14.0" layoutY="286.0" prefHeight="100.0" prefWidth="574.0" spacing="10.0" style="-fx-background-color: #dfe6e9;">
+      <HBox alignment="CENTER" layoutX="43.0" layoutY="293.0" prefHeight="100.0" prefWidth="616.0" spacing="10.0" style="-fx-background-color: #dfe6e9; -fx-background-radius: 0;">
          <children>
-            <Button fx:id="start" mnemonicParsing="false" onAction="#startTimer" style="-fx-background-color: #0984e3;" text="Start" textFill="WHITE" HBox.hgrow="SOMETIMES">
+            <Button fx:id="start" mnemonicParsing="false" onAction="#startTimer" prefHeight="58.0" prefWidth="129.0" style="-fx-background-color: #0984e3;" text="Start" textFill="WHITE" HBox.hgrow="SOMETIMES">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
@@ -21,7 +20,7 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="stop" contentDisplay="CENTER" mnemonicParsing="false" onAction="#stopTimer" style="-fx-background-color: #d63031;" text="Stop" textFill="WHITE" HBox.hgrow="SOMETIMES">
+            <Button fx:id="stop" contentDisplay="CENTER" mnemonicParsing="false" onAction="#stopTimer" prefHeight="58.0" prefWidth="126.0" style="-fx-background-color: #d63031;" text="Stop" textFill="WHITE" HBox.hgrow="SOMETIMES">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
@@ -29,7 +28,7 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="reset" mnemonicParsing="false" onAction="#resetTimer" style="-fx-background-color: #fdcb6e;" text="Reset" HBox.hgrow="SOMETIMES">
+            <Button fx:id="reset" mnemonicParsing="false" onAction="#resetTimer" prefHeight="60.0" prefWidth="123.0" style="-fx-background-color: #fdcb6e;" text="Reset" HBox.hgrow="SOMETIMES">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
@@ -45,36 +44,40 @@
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
          </padding>
       </HBox>
-      <Pane layoutX="145.0" layoutY="39.0" opacity="0.94" prefHeight="200.0" prefWidth="307.0" style="-fx-radius: 50%; -fx-background-color: #ff793f;">
+      <Pane layoutX="352.0" layoutY="39.0" opacity="0.94" prefHeight="253.0" prefWidth="307.0" style="-fx-background-radius: 0; -fx-background-color: #27ae60;">
          <children>
-            <Label layoutX="14.0" layoutY="106.0" text="Session work" textFill="#fffbfb">
+            <Label alignment="CENTER" layoutX="94.0" layoutY="127.0" prefHeight="35.0" prefWidth="120.0" text="Pause" textFill="#fffbfb">
                <font>
-                  <Font size="14.0" />
+                  <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="212.0" layoutY="106.0" text="Break Session" textFill="#f7f7f7">
+            <Label fx:id="countBreak" alignment="CENTER" layoutX="133.0" layoutY="175.0" prefHeight="26.0" prefWidth="41.0" text="0" textFill="WHITE">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Arial Bold" size="50.0" />
                </font>
             </Label>
-            <Label fx:id="sessionWorkTimer" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="45.0" prefHeight="55.0" prefWidth="69.0" text="25:00" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="labelBreak" alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="39.0" prefHeight="81.0" prefWidth="200.0" text="05:00" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font size="15.0" />
+                  <Font size="60.0" />
                </font>
             </Label>
-            <Label fx:id="sessionBreakTimer" alignment="CENTER" contentDisplay="CENTER" layoutX="212.0" layoutY="45.0" prefHeight="55.0" prefWidth="69.0" text="05:00" textAlignment="CENTER" textFill="WHITE">
+         </children>
+      </Pane>
+      <Pane layoutX="44.0" layoutY="39.0" opacity="0.94" prefHeight="253.0" prefWidth="307.0" style="-fx-background-radius: 0; -fx-background-color: #f39c12;">
+         <children>
+            <Label alignment="CENTER" layoutX="94.0" layoutY="127.0" prefHeight="35.0" prefWidth="120.0" text="Travail" textAlignment="CENTER" textFill="#fffbfb">
                <font>
-                  <Font size="15.0" />
+                  <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="countWork" alignment="CENTER" layoutX="28.0" layoutY="148.0" prefHeight="26.0" prefWidth="41.0" text="0" textFill="WHITE">
+            <Label fx:id="countWork" alignment="CENTER" layoutX="133.0" layoutY="175.0" prefHeight="26.0" prefWidth="41.0" text="0" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="15.0" />
+                  <Font name="Arial Bold" size="50.0" />
                </font>
             </Label>
-            <Label fx:id="countBreak" alignment="CENTER" layoutX="223.0" layoutY="148.0" prefHeight="26.0" prefWidth="46.0" text="0" textFill="WHITE">
+            <Label fx:id="labelWork" alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="39.0" prefHeight="81.0" prefWidth="200.0" text="25:00" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font size="14.0" />
+                  <Font size="60.0" />
                </font>
             </Label>
          </children>
