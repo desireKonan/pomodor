@@ -87,4 +87,7 @@ public class PomodoroController implements Initializable {
     }
 
 
+    public void exitApp(ActionEvent actionEvent) {
+        System.exit(0);
+    }
 }
