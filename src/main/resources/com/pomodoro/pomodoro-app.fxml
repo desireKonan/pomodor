@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="stack" prefHeight="544.0" prefWidth="426.0" style="-fx-background-color: #ff7979;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pomodoro.controllers.PomodoroController">
+   <children>
+      <VBox prefHeight="510.0" prefWidth="371.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="85.0" prefWidth="371.0" spacing="10.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onSettings" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="55.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@media/settings-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></HBox>
+            <Pane opacity="0.94" prefHeight="310.0" prefWidth="388.0" style="-fx-background-radius: 0;">
+               <children>
+                  <Label alignment="CENTER" layoutX="88.0" layoutY="184.0" prefHeight="35.0" prefWidth="126.0" text="Travail" textAlignment="CENTER" textFill="#fffbfb">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="countWork" alignment="CENTER" layoutX="282.0" layoutY="172.0" prefHeight="26.0" prefWidth="41.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Bold" size="50.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelWork" alignment="CENTER" contentDisplay="CENTER" layoutX="114.0" layoutY="59.0" prefHeight="81.0" prefWidth="200.0" text="25:00" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Emoji" size="60.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="91.0" layoutY="243.0" prefHeight="35.0" prefWidth="120.0" text="Pause" textFill="#fffbfb">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="countBreak" alignment="CENTER" layoutX="282.0" layoutY="231.0" prefHeight="26.0" prefWidth="41.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Bold" size="50.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label" alignment="CENTER" layoutX="114.0" layoutY="9.0" prefHeight="49.0" prefWidth="200.0" text="Label" textFill="WHITE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="50.0" layoutY="147.0" prefHeight="17.0" prefWidth="327.0" />
+                  <Separator layoutX="48.0" layoutY="296.0" prefHeight="5.0" prefWidth="327.0" />
+                  <Separator layoutX="50.0" layoutY="-8.0" prefHeight="17.0" prefWidth="327.0" />
+               </children>
+            </Pane>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="327.0" spacing="10.0" style="-fx-background-radius: 0;">
+               <children>
+                  <Button fx:id="start" mnemonicParsing="false" onAction="#startTimer" prefHeight="54.0" prefWidth="78.0" style="-fx-background-color: white;" text="Start" textFill="#e11ac7" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="stop" contentDisplay="CENTER" mnemonicParsing="false" onAction="#stopTimer" prefHeight="54.0" prefWidth="78.0" style="-fx-background-color: white;" text="Stop" textFill="#f4183c" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="reset" mnemonicParsing="false" onAction="#resetTimer" prefHeight="54.0" prefWidth="78.0" style="-fx-background-color: white;" text="Reset" textFill="#e78413" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

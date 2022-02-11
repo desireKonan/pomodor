@@ -8,4 +8,8 @@ module com.project2.pomodoro {
 
     opens com.pomodoro to javafx.fxml, javafx.media;
     exports com.pomodoro;
+    exports com.pomodoro.controllers;
+    opens com.pomodoro.controllers to javafx.fxml, javafx.media;
+    exports com.pomodoro.models;
+    opens com.pomodoro.models to javafx.fxml, javafx.media;
 }

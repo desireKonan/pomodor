@@ -1,4 +1,4 @@
-package com.pomodoro;
+package com.pomodoro.models;
 
 public enum PomodoroMode {
     WORK(25),

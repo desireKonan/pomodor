@@ -1,4 +1,4 @@
-package com.pomodoro;
+package com.pomodoro.models;
 
 public class PomodoroClock {
     //Compteur des sessions de travail et de pause.
@@ -53,16 +53,37 @@ public class PomodoroClock {
         return time == 0;
     }
 
+    public void start() {
+        this.time--;
+    }
+
+    public static void addWorkCount() {
+        countWork++;
+    }
+
+    public static void addBreakCount() {
+        countBreak++;
+    }
+
+    public static void resetWork() {
+        countWork++;
+    }
+
+    public static void resetBreak() {
+        countBreak++;
+    }
+
     //Démarre la montre pomodoro.
     public void startTime() {
         if(isTimingUp()) {
             //Si le temps est 0, on réinitialise la montre.
             this.setTurn();
             time = this.getMode().getSecondes();
-            if (this.mode.equals(PomodoroMode.WORK))
+            if (this.mode.equals(PomodoroMode.WORK)) {
                 countWork++;
-            else
+            } else {
                 countBreak++;
+            }
         } else {
             time--;
             System.out.println(currentTime());
@@ -78,7 +99,7 @@ public class PomodoroClock {
     }
 
 
-    private void setTurn() {
+    public void setTurn() {
         if (this.mode.equals(PomodoroMode.WORK)) {
             if(countBreak % 4 == 0 && countBreak != 0) {
                 this.setMode(PomodoroMode.LONG_BREAK);
